@@ -12,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import net.objecthunter.exp4j.ExpressionBuilder;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -38,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+        Button equal_button = findViewById(R.id.equal_button);
+        equal_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    double result = new ExpressionBuilder(edit_text.getText().toString()).build().evaluate();
+                    edit_text.setText(String.valueOf(result));
+                } catch (IllegalArgumentException e) {
+                    edit_text.setText("計算できません");
+                }
+            }
+        });
     }
 
     public enum MathButton {
