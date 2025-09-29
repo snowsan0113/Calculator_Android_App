@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "snowsan0113.calculator_android_app"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "snowsan0113.calculator_android_app"
