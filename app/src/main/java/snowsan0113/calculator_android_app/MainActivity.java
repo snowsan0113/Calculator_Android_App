@@ -2,6 +2,7 @@ package snowsan0113.calculator_android_app;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,52 +49,85 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    double result = new ExpressionBuilder(edit_text.getText().toString()).build().evaluate();
+                    double result = new ExpressionBuilder(MathButton.replaceLibraryText(edit_text.getText().toString())).build().evaluate();
                     edit_text.setText(String.valueOf(result));
                 } catch (IllegalArgumentException e) {
                     edit_text.setText("計算できません");
                 }
             }
         });
+
+        Button delete_button = findViewById(R.id.delete_button);
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Editable editable = edit_text.getText();
+                String text = editable.toString();
+                if (editable.length() >= 1) {
+                    edit_text.setText(text.substring(0, editable.length() - 1));
+                }
+            }
+        });
     }
 
     public enum MathButton {
-        ZERO(R.id.zero_button,"0"),
-        ONE(R.id.one_button,"1"),
-        TWO(R.id.two_button,"2"),
-        THREE(R.id.there_button,"3"),
-        FOUR(R.id.four_button,"4"),
-        FIVE(R.id.five_button,"5"),
-        SIX(R.id.six_button,"6"),
-        SEVEN(R.id.seven_button,"7"),
-        EIGHT(R.id.eight_button,"8"),
-        NINE(R.id.nine_button, "9"),
+        ZERO(R.id.zero_button,"0", "0"),
+        ONE(R.id.one_button,"1", "1"),
+        TWO(R.id.two_button,"2", "2"),
+        THREE(R.id.there_button,"3", "3"),
+        FOUR(R.id.four_button,"4", "4"),
+        FIVE(R.id.five_button,"5", "5"),
+        SIX(R.id.six_button,"6", "6"),
+        SEVEN(R.id.seven_button,"7", "7"),
+        EIGHT(R.id.eight_button,"8", "8"),
+        NINE(R.id.nine_button, "9", "9"),
 
-        PLUS(R.id.plus_button, "+"),
-        MINE(R.id.minus_button, "-"),
-        MULTIPLICATION(R.id.multiplication_button, "×"),
-        DIVISION(R.id.division_button, "÷"),
+        PLUS(R.id.plus_button, "+", "+"),
+        MINE(R.id.minus_button, "-", "-"),
+        MULTIPLICATION(R.id.multiplication_button, "*", "×"), //「×」は使えないため、「*」をライブラリに
+        DIVISION(R.id.division_button, "/", "÷"), // 「÷」は使えないため、「 / 」 をライブラリに
 
-        DECIMAL(R.id.decimal_button, "."),
-        PERCENT(R.id.percent_button, "％"),
-        ROOT(R.id.root_button, "√");
-
+        DECIMAL(R.id.decimal_button, ".", "."),
+        PERCENT(R.id.percent_button, "/100", "%"), // 「％」は使えないため、「 / 100」 をライブラリに
+        ROOT(R.id.root_button, "√", "√");
 
         private final int button_id;
+        private final String library_text;
         private final String send_text;
 
-        MathButton(int button_id, String send_text) {
+        MathButton(int button_id, String library_text, String send_text) {
             this.button_id = button_id;
+            this.library_text = library_text;
             this.send_text = send_text;
-
         }
 
+        /**
+         * @return アプリ上に送る文字を返す。（ライブラリと異なる場合は変える）
+         */
         public String getSendText() {
             return send_text;
         }
 
+        /**
+         * @return ライブラリ上に送るテキスト
+         */
+        public String getLibraryText() {
+            return library_text;
+        }
+
         public int getButtonID() {
             return button_id;
+        }
+
+        public static String replaceLibraryText(String text) {
+            for (MathButton button : MathButton.values()) {
+                String send_text = button.getSendText();
+                String library_text = button.getLibraryText();
+                if (text.contains(send_text)) {
+                    text = text.replace(send_text, library_text);
+                }
+            }
+            return text;
         }
     }
 }
