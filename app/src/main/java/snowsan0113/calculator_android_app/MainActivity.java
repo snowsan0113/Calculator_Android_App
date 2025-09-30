@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         EditText edit_text = findViewById(R.id.editTextNumber);
+        edit_text.setShowSoftInputOnFocus(false);
 
         for (MathButton math_button : MathButton.values()) {
             int id = math_button.getButtonID();
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     edit_text.setText(edit_text.getText().toString() + math_button.getSendText());
+                    edit_text.setSelection(edit_text.length());
                 }
             });
         }
