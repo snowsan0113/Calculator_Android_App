@@ -9,9 +9,10 @@
 
     <GridLayout
         android:id="@+id/grid"
-        android:layout_width="372dp"
-        android:layout_height="395dp"
+        android:layout_width="399dp"
+        android:layout_height="550dp"
         android:layout_margin="16dp"
+        android:background="#DED6D6"
         android:columnCount="4"
         android:orientation="horizontal"
         android:rowCount="6"
@@ -20,7 +21,103 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.556">
+        app:layout_constraintVertical_bias="1.08">
+
+        <Button
+            android:id="@+id/ac_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:backgroundTint="#503131FF"
+            android:text="AC"
+            android:textColorLink="#211F1F"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/parentheses_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:backgroundTint="#503131FF"
+            android:text="()"
+            android:textColorLink="#211F1F"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/pie_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:backgroundTint="#503131FF"
+            android:text="π"
+            android:textColorLink="#211F1F"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/percent_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:backgroundTint="#503131FF"
+            android:text="%"
+            android:textColorLink="#211F1F"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/root_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:backgroundTint="#503131FF"
+            android:text="√"
+            android:textColorLink="#211F1F"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/exponentiation_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:backgroundTint="#503131FF"
+            android:text="^"
+            android:textColorLink="#211F1F"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/factorial_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:backgroundTint="#503131FF"
+            android:text="!"
+            android:textColorLink="#211F1F"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/division_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:backgroundTint="#211F1F"
+            android:text="÷"
+            android:textColorLink="#211F1F"
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/nine_button"
@@ -53,14 +150,14 @@
             android:textSize="30dp" />
 
         <Button
-            android:id="@+id/plus_button"
+            android:id="@+id/multiplication_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="5dp"
             android:backgroundTint="#211F1F"
-            android:text="+"
+            android:text="×"
             android:textColorLink="#211F1F"
             android:textSize="30dp" />
 
@@ -95,14 +192,15 @@
             android:textSize="30dp" />
 
         <Button
-            android:id="@+id/minus_button"
+            android:id="@+id/plus_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="5dp"
             android:backgroundTint="#211F1F"
-            android:text="-"
+            android:text="+"
+            android:textColorLink="#211F1F"
             android:textSize="30dp" />
 
         <Button
@@ -136,15 +234,14 @@
             android:textSize="30dp" />
 
         <Button
-            android:id="@+id/multiplication_button"
+            android:id="@+id/minus_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="5dp"
             android:backgroundTint="#211F1F"
-            android:text="×"
-            android:textColorLink="#211F1F"
+            android:text="-"
             android:textSize="30dp" />
 
         <Button
@@ -158,13 +255,15 @@
             android:textSize="30dp" />
 
         <Button
-            android:id="@+id/equal_button"
+            android:id="@+id/decimal_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="5dp"
-            android:text="="
+            android:backgroundTint="#664FA3"
+            android:text="."
+            android:textColorLink="#211F1F"
             android:textSize="30dp" />
 
         <Button
@@ -179,62 +278,34 @@
 
 
         <Button
-            android:id="@+id/division_button"
+            android:id="@+id/equal_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_margin="5dp"
             android:backgroundTint="#211F1F"
-            android:text="÷"
-            android:textColorLink="#211F1F"
-            android:textSize="30dp" />
-
-        <Button
-            android:id="@+id/decimal_button"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"
-            android:backgroundTint="#503131FF"
-            android:text="."
-            android:textColorLink="#211F1F"
-            android:textSize="30dp" />
-
-        <Button
-            android:id="@+id/percent_button"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"
-            android:backgroundTint="#503131FF"
-            android:text="%"
-            android:textColorLink="#211F1F"
-            android:textSize="30dp" />
-
-        <Button
-            android:id="@+id/root_button"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"
-            android:backgroundTint="#503131FF"
-            android:text="√"
-            android:textColorLink="#211F1F"
+            android:text="="
             android:textSize="30dp" />
 
     </GridLayout>
 
     <EditText
         android:id="@+id/editTextNumber"
-        android:layout_width="273dp"
-        android:layout_height="80dp"
+        android:layout_width="398dp"
+        android:layout_height="104dp"
         android:ems="10"
         android:inputType="none"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="53dp" />
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="71dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="56dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/baseline_more_vert_24"
+        tools:layout_editor_absoluteY="1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

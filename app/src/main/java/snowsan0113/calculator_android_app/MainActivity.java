@@ -57,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button ac_button = findViewById(R.id.ac_button);
+        ac_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                edit_text.setText("");
+            }
+        });
+
         Button delete_button = findViewById(R.id.delete_button);
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,12 +89,13 @@ public class MainActivity extends AppCompatActivity {
         SEVEN(R.id.seven_button,"7", "7"),
         EIGHT(R.id.eight_button,"8", "8"),
         NINE(R.id.nine_button, "9", "9"),
-
         PLUS(R.id.plus_button, "+", "+"),
         MINE(R.id.minus_button, "-", "-"),
         MULTIPLICATION(R.id.multiplication_button, "*", "×"), //「×」は使えないため、「*」をライブラリに
         DIVISION(R.id.division_button, "/", "÷"), // 「÷」は使えないため、「 / 」 をライブラリに
 
+        PARENTHESES(R.id.parentheses_button, "()", "()"),
+        PIE(R.id.pie_button, String.valueOf(Math.PI), "π"),
         DECIMAL(R.id.decimal_button, ".", "."),
         PERCENT(R.id.percent_button, "/100", "%"), // 「％」は使えないため、「 / 100」 をライブラリに
         ROOT(R.id.root_button, "√", "√");
