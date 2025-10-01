@@ -1,14 +1,19 @@
 package snowsan0113.calculator_android_app;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -74,6 +79,33 @@ public class MainActivity extends AppCompatActivity {
                 if (editable.length() >= 1) {
                     edit_text.setText(text.substring(0, editable.length() - 1));
                 }
+            }
+        });
+
+        ImageButton img_button = findViewById(R.id.imageButton);
+        img_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(MainActivity.this, view);
+                popup.getMenuInflater().inflate(R.menu.menu, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if (item.getItemId() == R.id.menu_item_history) {
+                            Toast.makeText(MainActivity.this, "まだ実装されてません", Toast.LENGTH_SHORT).show();
+                        }
+                        else if (item.getItemId() == R.id.menu_item_version) {
+                            Toast.makeText(MainActivity.this, "まだ実装されてません", Toast.LENGTH_SHORT).show();
+                        }
+                        else if (item.getItemId() == R.id.menu_item_exit) {
+                            finish();
+                        }
+                        return true;
+                    }
+                });
+
+                popup.show();
             }
         });
     }
